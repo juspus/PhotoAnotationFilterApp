@@ -4,6 +4,7 @@ from PIL import Image
 import importlib.util
 import numpy as np
 import cv2
+from PyQt5.QtWidgets import QApplication, QLabel, QWidget, QVBoxLayout, QPushButton
 
 class main():
     def __init__(self) -> None:
@@ -41,5 +42,15 @@ def run():
     cv2.imshow('t', images[0])
     cv2.waitKey()
     app.execute_annotation_plugins(images)
-    
-run()
+
+def main():
+    app = QApplication([])
+    window = QWidget()
+    layout = QVBoxLayout()
+    layout.addWidget(QPushButton('Top'))
+    layout.addWidget(QPushButton('Bottom'))
+    window.setLayout(layout)
+    window.show()
+    app.exec()
+#run()
+main()
